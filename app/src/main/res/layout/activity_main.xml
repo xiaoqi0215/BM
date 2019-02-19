@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <FrameLayout
+        android:id="@+id/main_fragmentlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+    <RadioGroup
+        android:layout_alignParentBottom="true"
+        android:id="@+id/main_mytab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <RadioButton
+            android:id="@+id/main_tab_birthday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="生日"
+            android:drawableTop="@drawable/selector_main_tab_birthday"
+            style="@style/ButtonGroupStyle"></RadioButton>
+        <RadioButton
+            android:id="@+id/main_tab_dynamic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="活动"
+            android:gravity="center"
+            android:drawableTop="@drawable/selector_main_tab_dynamic"
+            style="@style/ButtonGroupStyle"></RadioButton>
+        <RadioButton
+            android:id="@+id/main_tab_my"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="我的"
+            android:drawableTop="@drawable/selector_main_tab_my"
+            style="@style/ButtonGroupStyle">
+
+        </RadioButton>
+    </RadioGroup>
+
+</RelativeLayout>

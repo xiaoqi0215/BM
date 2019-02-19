@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ButtonGroupStyle">
+        <item name="android:button">@null</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/selector_main_tab_textcolor</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+
+</resources>
