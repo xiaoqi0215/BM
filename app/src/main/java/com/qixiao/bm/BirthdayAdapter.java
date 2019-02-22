@@ -9,6 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.qixiao.bm.Utils.ImageUtils;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -40,6 +45,10 @@ public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        RequestOptions options = RequestOptions
+                .circleCropTransform()
+                .diskCacheStrategy(DiskCacheStrategy.ALL);
+        Glide.with(context).load(R.mipmap.ic_birthday_friend_icon).apply(options).into(viewHolder.mIconIv);
 
     }
 

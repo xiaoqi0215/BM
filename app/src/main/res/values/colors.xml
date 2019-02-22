@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#FFBBFF</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="tab_textColor">#F697C1</color>
-    <color name="tab_textColor_check">#000000</color>
+    <color name="tab_textColor">#dbdbdb</color>
+    <color name="tab_textColor_check">#EE7AE9</color>
+    <color name="background">#ffffff</color>
+    <color name="friend_item_background">#EEE0E5</color>
+    <color name="white">#ffffff</color>
+    <color name="menu_backgroud">#FFE1FF</color>
+    <color name="duibi">#fbf0b9</color>
+    <color name="black">#000000</color>
 </resources>

@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -35,9 +36,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected abstract void initView();
 
-    protected abstract void initData();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -50,7 +48,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         unbinder = ButterKnife.bind(this);
         createPresenter();
         initView();
-        initData();
     }
 
     @Override
@@ -62,9 +59,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         super.onDestroy();
         unbinder.unbind();
         BaseApplication.removeActivity(this);
-    }
-
-    protected void refreshData() {
     }
 
     public void showProgress() {
@@ -93,6 +87,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @Override
     public void showToast(String message){
+        Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show();
     }
 
 

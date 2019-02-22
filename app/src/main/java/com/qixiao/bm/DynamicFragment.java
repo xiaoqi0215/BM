@@ -32,13 +32,5 @@ public class DynamicFragment extends BaseFragment {
 
     }
 
-    @Override
-    public void setStatus(int status) {
 
-    }
-
-    @Override
-    public void tologin(String msg) {
-
-    }
 }

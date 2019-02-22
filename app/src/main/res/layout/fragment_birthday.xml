@@ -7,12 +7,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:paddingTop="10in"
+        android:background="@color/colorPrimary"
+        android:paddingTop="10dp"
         android:paddingRight="15dp"
         >
 
         <ImageView
-            android:id="@+id/iv_my_info_tab_return"
+            android:id="@+id/iv_birthday_tab_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -27,6 +28,14 @@
             android:textColor="#000000"
             android:textSize="18sp"/>
 
+        <ImageView
+            android:id="@+id/iv_birthday_tab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/birthday_tab_add"
+            />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

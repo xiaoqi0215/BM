@@ -6,9 +6,6 @@ public interface BaseView {
 
     void dismissProgress();
 
-    void setStatus(int status);
-
     void showToast(String msg);
 
-    void tologin(String msg);
 }
