@@ -1,5 +1,6 @@
 package com.qixiao.bm.base;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.qixiao.bm.R;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -91,6 +94,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     }
 
 
+    protected void toActivity(Class c ){
+        Intent intent = new Intent(mContext,c);
+        toActivity(intent);
+    }
 
     /**
      * 跳转

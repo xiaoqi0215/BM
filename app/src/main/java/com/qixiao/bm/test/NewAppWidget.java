@@ -8,9 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
-
-import com.qixiao.bm.MainActivity;
 import com.qixiao.bm.R;
+import com.qixiao.bm.activity.MainActivity;
 
 
 import java.util.HashSet;

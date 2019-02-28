@@ -3,4 +3,5 @@
     <declare-styleable name="MyCircle">
         <attr name="radius" format="integer"></attr>
     </declare-styleable>
+
 </resources>

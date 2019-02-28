@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     >
 
+    <com.qixiao.bm.widget.MyActionBar
+        android:id="@+id/action_bar_myroot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:visibility="visible">
+    </com.qixiao.bm.widget.MyActionBar>
+
+
     <FrameLayout
         android:id="@+id/main_fragmentlayout"
         android:layout_width="match_parent"
         android:background="@color/background"
+        android:layout_below="@id/action_bar_myroot"
         android:layout_height="match_parent">
     </FrameLayout>
     <View
