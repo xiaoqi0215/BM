@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/iv_dynamic_list_item_icon"
+        android:layout_width="22dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:src="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/tv_dynamic_list_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:text="肖琦"
+        app:layout_constraintStart_toEndOf="@+id/iv_dynamic_list_item_icon"
+        app:layout_constraintTop_toTopOf="@+id/iv_dynamic_list_item_icon" />
+
+    <TextView
+        android:id="@+id/tv_dynamic_list_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:text="2018年11月11日"
+        app:layout_constraintStart_toEndOf="@+id/iv_dynamic_list_item_icon"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dynamic_list_item_name" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/dp25"
+            android:layout_height="25dp"
+            android:src="@mipmap/calendar" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/dynamic_fen"></View>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_dynamic_list_item_cotents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:singleLine="false"
+        android:text="S可视对讲发神经覅问佛爱我撒娇as会计法开始复刻等级富可敌国圣诞节安分开始发挥空间啊收到货范围划分卡位"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dynamic_list_item_time" />
+
+    <GridView
+        android:id="@+id/gv_dynamic_list_item_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dynamic_list_item_cotents" />
+
+
+</android.support.constraint.ConstraintLayout>
+

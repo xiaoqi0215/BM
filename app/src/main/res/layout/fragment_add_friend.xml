@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     >
 <LinearLayout
 
@@ -11,7 +13,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_add_friend_icon"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="50dp"
@@ -43,6 +45,7 @@
                 android:textSize="16sp" />
 
             <EditText
+                android:id="@+id/et_addfriend_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -81,6 +84,7 @@
                 android:text="性别" />
 
             <RadioGroup
+                android:id="@+id/rg_add_friend_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -89,11 +93,13 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_add_friend_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="女" />
 
                 <RadioButton
+                    android:id="@+id/rb_add_friend_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -111,7 +117,7 @@
             android:layout_height="50dp">
 
             <TextView
-                android:id="@+id/tv_addfriend_birthday"
+                android:id="@+id/tv_addfriend_birthday1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -120,11 +126,12 @@
                 android:text="生日" />
 
             <TextView
+                android:id="@+id/tv_addfriend_birthday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="50dp"
-                android:layout_toRightOf="@id/tv_addfriend_birthday"
+                android:layout_toRightOf="@id/tv_addfriend_birthday1"
                 android:hint="请选择生日"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -141,7 +148,7 @@
             android:layout_height="50dp">
 
             <TextView
-                android:id="@+id/tv_addfriend_way"
+                android:id="@+id/tv_addfriend_way1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -149,10 +156,11 @@
                 android:textSize="16sp"
                 android:text="提醒方式" />
             <TextView
+                android:id="@+id/tv_addfriend_way"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/tv_addfriend_way"
+                android:layout_toRightOf="@id/tv_addfriend_way1"
                 android:layout_centerVertical="true"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -180,6 +188,7 @@
                 android:text="手机" />
 
             <EditText
+                android:id="@+id/et_addfriend_tel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -188,6 +197,7 @@
                 android:background="@null"
                 android:hint="请输入手机号码" />
             <ImageView
+                android:id="@+id/iv_addfriend_tel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -214,6 +224,7 @@
                 android:text="祝福语" />
 
             <EditText
+                android:id="@+id/et_addfriend_word"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -228,11 +239,12 @@
 
 
     </LinearLayout>
-        <Button
-        android:id="@+id/button"
+
+    <Button
+        android:id="@+id/btn_add_friend_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+        android:layout_margin="15dp"
         android:background="@drawable/shape_friend_add_button"
         android:text="新增好友" />
 

@@ -1,30 +1,20 @@
-package com.qixiao.bm;
+package com.qixiao.bm.fragment;
 
 
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 
+import com.qixiao.bm.BirthdayListBean;
+import com.qixiao.bm.R;
+import com.qixiao.bm.adapter.BirthdayAdapter;
 import com.qixiao.bm.base.BaseFragment;
-import com.qixiao.bm.widget.MyActionBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class BirthdayFragment extends BaseFragment {
 

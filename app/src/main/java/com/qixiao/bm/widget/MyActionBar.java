@@ -1,7 +1,9 @@
 package com.qixiao.bm.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.drm.DrmStore;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ public class MyActionBar extends LinearLayout {
     private ImageView mIvLfet;
     private ImageView mIvRight;
     private TextView mTvTitle;
+    private String mTitle;
 
 
 
@@ -27,7 +30,7 @@ public class MyActionBar extends LinearLayout {
     }
 
     public MyActionBar(Context context,  AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
         init();
     }
 
@@ -35,10 +38,14 @@ public class MyActionBar extends LinearLayout {
 
     public MyActionBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+        TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.MyActionBar);
+        mTitle = typedArray.getString(R.styleable.MyActionBar_title);
+        mTvTitle.setText(mTitle);
     }
 
     private void init() {
-         setOrientation(HORIZONTAL);
+        setOrientation(HORIZONTAL);
         View layout = inflate(getContext(),R.layout.actionbar_baseactivity,this);
         mIvLfet = layout.findViewById(R.id.iv_base_activity_actionbar_left);
         mIvRight = layout.findViewById(R.id.iv_base_activity_actionbar_right);

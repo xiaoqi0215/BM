@@ -2,6 +2,11 @@
 <resources>
     <declare-styleable name="MyCircle">
         <attr name="radius" format="integer"></attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="MyActionBar">
+        <attr name="title" format="string"></attr>
     </declare-styleable>
 
 </resources>

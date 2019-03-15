@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_my_list_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/dp11"
+        android:layout_marginRight="@dimen/dp5"
+        android:background="@drawable/shape_my_list_bg"
+        android:paddingTop="@dimen/dp10"
+        android:paddingBottom="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/layout_my_list_name_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp14"
+            android:src="@mipmap/my_info"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp21"
+            android:layout_toRightOf="@id/layout_my_list_name_iv"
+            android:text="修改姓名"
+            android:textColor="@color/color_333333_black"
+            android:textSize="@dimen/font_l"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp7"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp14"
+            android:src="@mipmap/mine_arrow_right"
+            />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/layout_my_list_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp9"
+        android:layout_marginRight="@dimen/dp5"
+        android:background="@drawable/shape_my_list_bg"
+        android:paddingTop="@dimen/dp10"
+        android:paddingBottom="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/layout_my_list_pwd_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp14"
+            android:src="@mipmap/my_info"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp21"
+            android:layout_toRightOf="@id/layout_my_list_pwd_iv"
+            android:text="修改密码"
+            android:textColor="@color/color_333333_black"
+            android:textSize="@dimen/font_l"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp7"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp14"
+            android:src="@mipmap/mine_arrow_right"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_my_list_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp9"
+        android:layout_marginRight="@dimen/dp5"
+        android:background="@drawable/shape_my_list_bg"
+        android:paddingTop="@dimen/dp10"
+        android:paddingBottom="@dimen/dp10"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/layout_my_list_up_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp14"
+            android:src="@mipmap/my_upload"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp21"
+            android:layout_toRightOf="@id/layout_my_list_up_iv"
+            android:text="一键备份"
+            android:textColor="@color/color_333333_black"
+            android:textSize="@dimen/font_l"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp7"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp14"
+            android:src="@mipmap/mine_arrow_right"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

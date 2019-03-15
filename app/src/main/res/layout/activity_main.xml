@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        app:title="好友生日"
         android:visibility="visible">
     </com.qixiao.bm.widget.MyActionBar>
 
@@ -29,12 +30,13 @@
         android:background="@color/tab_textColor"></View>
     <RadioGroup
         android:layout_alignParentBottom="true"
+        android:paddingTop="@dimen/dp3"
         android:id="@+id/main_mytab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="0dp"
         android:background="@color/background">
         <RadioButton
             android:id="@+id/main_tab_birthday"

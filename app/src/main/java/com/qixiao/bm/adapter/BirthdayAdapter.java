@@ -1,4 +1,4 @@
-package com.qixiao.bm;
+package com.qixiao.bm.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,7 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.qixiao.bm.Utils.ImageUtils;
+import com.qixiao.bm.BirthdayListBean;
+import com.qixiao.bm.R;
 
 import java.util.List;
 
@@ -63,8 +64,6 @@ public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHo
         ImageView mIconIv;
         @BindView(R.id.iv_birthday_friend_item_calendar)
         ImageView mCalendarIv;
-        @BindView(R.id.tv_birthday_friend_item_check)
-        ImageView mCheckIv;
         @BindView(R.id.tv_birthday_friend_item_name)
         TextView mNameTv;
         @BindView(R.id.tv_birthday_friend_item_date)

@@ -1,4 +1,4 @@
-package com.qixiao.bm;
+package com.qixiao.bm.fragment;
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
+import com.qixiao.bm.R;
 import com.qixiao.bm.base.BaseFragment;
 
 import java.util.ArrayList;

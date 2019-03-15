@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_my_info_details_name"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp49"
+    android:background="@drawable/shape_my_family_menber_list_bg"
+    android:elevation="@dimen/dp3"
+    android:visibility="gone">
+
+    <EditText
+        android:id="@+id/et_my_info_details_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp11"
+        android:background="@null"
+        android:hint="请输入姓名"
+        android:maxLength="10"
+        android:maxLines="2"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/color_94A6B3"
+        android:textCursorDrawable="@drawable/shape_edittext"
+        android:textSize="@dimen/font_l"/>
+
+</LinearLayout>

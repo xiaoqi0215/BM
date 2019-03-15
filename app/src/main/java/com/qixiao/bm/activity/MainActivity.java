@@ -1,7 +1,6 @@
 package com.qixiao.bm.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -19,22 +18,19 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.qixiao.bm.BirthdayFragment;
-import com.qixiao.bm.DynamicFragment;
-import com.qixiao.bm.MyFragment;
+import com.qixiao.bm.fragment.BirthdayFragment;
+import com.qixiao.bm.fragment.DynamicFragment;
+import com.qixiao.bm.fragment.MyFragment;
 import com.qixiao.bm.R;
 import com.qixiao.bm.base.BaseActivity;
-import com.qixiao.bm.test.MyCircle;
 import com.qixiao.bm.widget.MyActionBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity {

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_my_info_details_pwd"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp49"
+        android:background="@drawable/shape_my_family_menber_list_bg"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp12"
+            android:text="旧密码"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_l"
+            />
+
+        <EditText
+            android:id="@+id/et_my_info_details_old_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp40"
+            android:background="@null"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="请输入旧密码"
+            android:inputType="textPassword"
+            android:maxLength="8"
+            android:textColorHint="@color/color_94A6B3"
+            android:textCursorDrawable="@drawable/shape_edittext"
+            android:textSize="@dimen/font_l"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp49"
+        android:layout_marginTop="@dimen/dp11"
+        android:background="@drawable/shape_my_family_menber_list_bg"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp12"
+            android:text="新密码"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_l"
+            />
+
+        <EditText
+            android:id="@+id/et_my_info_details_new_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp40"
+            android:background="@null"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="6-8位数字或字母，区分大小写"
+            android:inputType="textPassword"
+            android:maxLength="8"
+            android:textColorHint="@color/color_94A6B3"
+            android:textCursorDrawable="@drawable/shape_edittext"
+            android:textSize="@dimen/font_l"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp49"
+        android:layout_marginTop="@dimen/dp11"
+        android:background="@drawable/shape_my_family_menber_list_bg"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp12"
+            android:text="确认密码"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_l"
+            />
+
+        <EditText
+            android:id="@+id/et_my_info_details_renew_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp26"
+            android:background="@null"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="再次确认新密码"
+            android:inputType="textPassword"
+            android:maxLength="8"
+            android:textColorHint="@color/color_94A6B3"
+            android:textCursorDrawable="@drawable/shape_edittext"
+            android:textSize="@dimen/font_l"
+            />
+    </LinearLayout>
+</LinearLayout>
