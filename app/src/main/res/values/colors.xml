@@ -9,11 +9,13 @@
     <color name="friend_item_background">#EEE0E5</color>
     <color name="white">#ffffff</color>
     <color name="color_A5ADB3">#A5ADB3</color>
+    <color name="friend_item_drop">#E2ECECEE</color>
     <color name="menu_backgroud">#fbedf0</color>
     <color name="dynamic_bg">#ffffff</color>
     <color name="dynamic_fen">#fcf3fc</color>
     <color name="color_F7F7F7">#F7F7F7</color>
     <color name="duibi">#fbf0b9</color>
+    <color name="dynamic_more">#a99ced</color>
     <color name="black">#000000</color>
     <color name="color_94A6B3">#94A6B3</color>
     <color name="color_333333_black">#333333</color>

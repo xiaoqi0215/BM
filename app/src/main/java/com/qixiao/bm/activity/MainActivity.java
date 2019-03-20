@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -174,5 +175,6 @@ public class MainActivity extends BaseActivity {
                 , location[0], location[1]+viewH+20);
 
     }
+
 
 }

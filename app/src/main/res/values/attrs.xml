@@ -9,4 +9,8 @@
         <attr name="title" format="string"></attr>
     </declare-styleable>
 
+    <declare-styleable name="NineLayout">
+        <attr name="space" format="dimension"></attr>
+    </declare-styleable>
+
 </resources>

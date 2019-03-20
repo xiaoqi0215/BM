@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/iv_dynamic_list_item_icon"
-        android:layout_width="22dp"
-        android:layout_height="23dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:src="@color/colorPrimary"
@@ -61,30 +61,24 @@
             android:background="@color/dynamic_fen"></View>
     </LinearLayout>
 
-    <TextView
+    <com.qixiao.bm.widget.MyTextView
         android:id="@+id/tv_dynamic_list_item_cotents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:singleLine="false"
-        android:text="S可视对讲发神经覅问佛爱我撒娇as会计法开始复刻等级富可敌国圣诞节安分开始发挥空间啊收到货范围划分卡位"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dynamic_list_item_time" />
+        app:layout_constraintStart_toStartOf="@+id/iv_dynamic_list_item_icon"
+        app:layout_constraintTop_toBottomOf="@+id/iv_dynamic_list_item_icon" />
 
-    <GridView
+    <com.qixiao.bm.widget.NineLayout
         android:id="@+id/gv_dynamic_list_item_picture"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dynamic_list_item_cotents" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_dynamic_list_item_cotents"
+        app:space="@dimen/dp2"
+        ></com.qixiao.bm.widget.NineLayout>
 
 </android.support.constraint.ConstraintLayout>
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/color_A5ADB3"
+    tools:targetApi="lollipop">
+
+    <item>
+        <selector
+            android:shape="rectangle">
+            <item>
+                <layer-list>
+                    <!-- SHADOW LAYER -->
+                    <item>
+                        <shape>
+                            <solid android:color="#16423CE6"/>
+                            <corners android:radius="@dimen/dp5"/>
+                        </shape>
+                    </item>
+
+                    <!-- CONTENT LAYER -->
+                    <!-- 相当于padding -->
+                    <item android:bottom="@dimen/dp2">
+                        <shape>
+                            <solid android:color="@color/white"/>
+                            <corners android:radius="@dimen/dp5"/>
+                            <stroke
+                                android:width="@dimen/dp1"
+                                android:color="@color/friend_item_drop"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+        </selector>
+
+    </item>
+</ripple>

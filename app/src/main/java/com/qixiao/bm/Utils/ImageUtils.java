@@ -11,7 +11,7 @@ public  class ImageUtils {
     /**
      * 圆形图片，圆形图都是头像，所以可以将默认头像作为失败图
      */
-    public static void loadCircleImg(final Context context, Object path, ImageView imageView, int error) {
+    public static void loadCircleImg(final Context context, String path, ImageView imageView, int error) {
         RequestOptions options = RequestOptions
                 .circleCropTransform()
                 .diskCacheStrategy(DiskCacheStrategy.ALL);

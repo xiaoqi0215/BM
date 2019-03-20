@@ -47,8 +47,9 @@ public class BirthdayFragment extends BaseFragment {
         mAdapter = new BirthdayAdapter(getActivity(),data);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mFriendRv.setLayoutManager(linearLayoutManager);
+        mFriendRv.addItemDecoration(new BirthdayAdapter.SpaceItemDecoration(15));
         mFriendRv.setAdapter(mAdapter);
-        mFriendRv.addItemDecoration(new DividerItemDecoration(mContext,1));
+
     }
 
     @Override

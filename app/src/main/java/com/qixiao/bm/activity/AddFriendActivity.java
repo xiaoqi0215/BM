@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import com.qixiao.bm.R;
 import com.qixiao.bm.base.BaseActivity;
+import com.qixiao.bm.widget.NineLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -39,6 +43,7 @@ public class AddFriendActivity extends BaseActivity {
     EditText etAddfriendWord;
     @BindView(R.id.btn_add_friend_add)
     Button btnAddFriendAdd;
+
 
     @Override
     protected int getContentView() {
