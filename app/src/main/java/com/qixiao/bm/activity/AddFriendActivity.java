@@ -1,5 +1,6 @@
 package com.qixiao.bm.activity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,17 +10,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.qixiao.bm.R;
+import com.qixiao.bm.Utils.ImageUtils;
 import com.qixiao.bm.base.BaseActivity;
-import com.qixiao.bm.widget.NineLayout;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.qixiao.bm.widget.MyActionBar;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AddFriendActivity extends BaseActivity {
-
 
     @BindView(R.id.iv_add_friend_icon)
     ImageView ivAddFriendIcon;
@@ -43,6 +42,10 @@ public class AddFriendActivity extends BaseActivity {
     EditText etAddfriendWord;
     @BindView(R.id.btn_add_friend_add)
     Button btnAddFriendAdd;
+    @BindView(R.id.tab_add_friend)
+    MyActionBar tabAddFriend;
+    @BindView(R.id.tv_addfriend_word)
+    TextView tvAddfriendWord;
 
 
     @Override
@@ -57,7 +60,8 @@ public class AddFriendActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        ImageUtils.loadIntCircleImg(this, R.mipmap.mine_user_icon_default, ivAddFriendIcon);
+        tabAddFriend.hihRight();
     }
 
     @Override
@@ -65,24 +69,29 @@ public class AddFriendActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.iv_add_friend_icon,R.id.btn_add_friend_add,R.id.tv_addfriend_birthday,
-            R.id.tv_addfriend_way,R.id.iv_addfriend_tel})
+    @OnClick({R.id.iv_add_friend_icon, R.id.btn_add_friend_add, R.id.tv_addfriend_birthday,
+            R.id.tv_addfriend_way, R.id.iv_addfriend_tel})
     public void onViewClick(View view) {
-            switch(view.getId()){
-                case R.id.iv_add_friend_icon:
-                    break;
-                case  R.id.btn_add_friend_add:
-                    break;
-                case R.id.tv_addfriend_birthday:
-                    break;
-                case R.id.tv_addfriend_way:
-                    break;
-                case  R.id.iv_addfriend_tel:
-                    break;
-            }
+        switch (view.getId()) {
+            case R.id.iv_add_friend_icon:
+                break;
+            case R.id.btn_add_friend_add:
+                break;
+            case R.id.tv_addfriend_birthday:
+                break;
+            case R.id.tv_addfriend_way:
+                break;
+            case R.id.iv_addfriend_tel:
+                break;
+        }
 
     }
 
 
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

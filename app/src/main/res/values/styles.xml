@@ -19,6 +19,14 @@
 
     </style>
 
+    <style name="Launch" parent="Base.Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@layout/activity_splash</item>
+    </style>
+
+
 
 
 

@@ -17,4 +17,11 @@ public  class ImageUtils {
                 .diskCacheStrategy(DiskCacheStrategy.ALL);
         Glide.with(context).load(path).apply(options).into(imageView);
     }
+
+    public static void loadIntCircleImg(final Context context, int path, ImageView imageView) {
+        RequestOptions options = RequestOptions
+                .circleCropTransform()
+                .diskCacheStrategy(DiskCacheStrategy.ALL);
+        Glide.with(context).load(path).apply(options).into(imageView);
+    }
 }

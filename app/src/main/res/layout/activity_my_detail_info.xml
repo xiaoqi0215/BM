@@ -5,10 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <com.qixiao.bm.widget.MyActionBar
-        android:id="@+id/mab_my_detail_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:title="修改个人信息">
+        android:id="@+id/tab_my_detail_info"
+        android:layout_width="match_parent"
+        app:title=" "
+        android:layout_height="wrap_content">
     </com.qixiao.bm.widget.MyActionBar>
 
 <LinearLayout
@@ -16,6 +16,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/dp15"
     android:layout_marginRight="@dimen/dp15"
+    android:layout_marginTop="@dimen/dp15"
     android:orientation="vertical"
     android:visibility="visible">
 
@@ -26,9 +27,7 @@
         android:id="@+id/btn_my_info_details_save"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp45"
-        android:layout_marginLeft="@dimen/dp15"
         android:layout_marginTop="@dimen/dp33"
-        android:layout_marginRight="@dimen/dp15"
         android:background="@drawable/selector_my_info_detail_save"
         android:text="保 存"
         android:textColor="@color/white"
