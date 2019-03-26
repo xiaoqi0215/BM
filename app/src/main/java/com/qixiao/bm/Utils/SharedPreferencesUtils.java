@@ -11,7 +11,7 @@ public class SharedPreferencesUtils {
     SharedPreferences sp;
     SharedPreferences.Editor editor ;
     public SharedPreferencesUtils(Context context){
-        sp = BMApplication.getContext().getSharedPreferences("bm", Context.MODE_PRIVATE);
+        sp = context.getSharedPreferences("bm", Context.MODE_PRIVATE);
         editor = sp.edit();
     }
 

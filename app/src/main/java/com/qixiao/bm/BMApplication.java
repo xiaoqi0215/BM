@@ -1,6 +1,7 @@
 package com.qixiao.bm;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.qixiao.bm.Utils.SharedPreferencesUtils;
 import com.qixiao.bm.base.BaseApplication;
@@ -22,6 +23,5 @@ public class BMApplication extends BaseApplication {
 
     private void initLogin() {
         msp = new SharedPreferencesUtils(this);
-
     }
 }

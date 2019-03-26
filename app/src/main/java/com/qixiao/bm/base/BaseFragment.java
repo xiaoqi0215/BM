@@ -44,6 +44,10 @@ public abstract class BaseFragment<P extends BasePresenterImpl> extends Fragment
 
     protected abstract void initData();
 
+    @Override
+    public void tologin() {
+
+    }
 
     /**
      * 每次都进行懒加载

@@ -12,13 +12,15 @@ import android.widget.TextView;
 import com.qixiao.bm.R;
 import com.qixiao.bm.Utils.ImageUtils;
 import com.qixiao.bm.base.BaseActivity;
+import com.qixiao.bm.contract.AddFriendContract;
+import com.qixiao.bm.contract.AddFriendPresenter;
 import com.qixiao.bm.widget.MyActionBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AddFriendActivity extends BaseActivity {
+public class AddFriendActivity extends BaseActivity<AddFriendPresenter>implements AddFriendContract.View {
 
     @BindView(R.id.iv_add_friend_icon)
     ImageView ivAddFriendIcon;
@@ -55,7 +57,7 @@ public class AddFriendActivity extends BaseActivity {
 
     @Override
     protected void createPresenter() {
-
+            mPresenter = new AddFriendPresenter(this,this);
     }
 
     @Override
@@ -76,6 +78,7 @@ public class AddFriendActivity extends BaseActivity {
             case R.id.iv_add_friend_icon:
                 break;
             case R.id.btn_add_friend_add:
+                mPresenter.test();
                 break;
             case R.id.tv_addfriend_birthday:
                 break;
@@ -89,9 +92,7 @@ public class AddFriendActivity extends BaseActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public void testScuess(String name) {
+        showToast(name);
     }
 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qixiao.bm.R;
+import com.qixiao.bm.Utils.SharedPreferencesUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -32,6 +33,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public static String TAG;
     protected Context mContext;
     private Unbinder unbinder;
+    private SharedPreferencesUtils msp;
 
     protected abstract int getContentView();
 
@@ -40,16 +42,23 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     protected abstract void initView();
 
     @Override
+    public void tologin() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         mContext = this;
         initActivity(savedInstanceState);
+        msp = new SharedPreferencesUtils(this);
         BaseApplication.addActivity(this);
         TAG = this.getClass().getSimpleName();
         setContentView(getContentView());
         unbinder = ButterKnife.bind(this);
         createPresenter();
+
         initView();
     }
 

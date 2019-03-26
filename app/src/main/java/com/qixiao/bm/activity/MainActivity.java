@@ -21,6 +21,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.qixiao.bm.base.BasePresenter;
+import com.qixiao.bm.contract.MainActivityContract;
 import com.qixiao.bm.fragment.BirthdayFragment;
 import com.qixiao.bm.fragment.DynamicFragment;
 import com.qixiao.bm.fragment.MyFragment;
@@ -34,7 +36,7 @@ import java.util.List;
 import butterknife.BindView;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity<MainActivityContract.Presenter> implements MainActivityContract.View {
     @BindView(R.id.main_mytab)
     RadioGroup rb;
     @BindView(R.id.main_tab_my)

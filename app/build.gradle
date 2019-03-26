@@ -16,7 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -39,6 +46,8 @@ dependencies {
     implementation 'com.yanzhenjie:permission:2.0.0-rc5'
     //  照片
     implementation 'com.zhihu.android:matisse:0.5.2-beta2'
+    //日志
+    implementation 'com.orhanobut:logger:2.2.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
