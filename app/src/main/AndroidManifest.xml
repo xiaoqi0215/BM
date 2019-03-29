@@ -12,6 +12,16 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.AddFriendActivity"></activity>
         <activity android:name=".activity.MainActivity">
+        <intent-filter >
+            <action android:name="android.intent.action.VIEW"></action>
+            <data android:scheme="qixiao"
+                android:host="demo"
+                android:port="8888"
+                android:path="/second"
+                android:pathPattern="/second"
+                android:pathPrefix="/second"/>
+        </intent-filter>
+
         </activity>
         <activity android:name=".activity.MyDetailInfo"></activity>
         <activity android:name=".activity.RegisterActivity"></activity>
@@ -26,5 +36,6 @@
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 </manifest>
