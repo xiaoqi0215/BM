@@ -25,9 +25,34 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowBackground">@mipmap/splash</item>
     </style>
-
-
-
+    <style name="vertical_line">
+        <item name="android:layout_width">0.01dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/theme_divide_line_gray</item>
+    </style>
+    <style name="horizontal_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.01dp</item>
+        <item name="android:background">@color/theme_divide_line_gray</item>
+    </style>
+    <!--自定义dialog背景全透明无边框theme -->
+    <style name="CommonDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!-- 缩放动画 -->
+    <style name="DialogScaleAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_scale_out</item>
+    </style>
 
 
 

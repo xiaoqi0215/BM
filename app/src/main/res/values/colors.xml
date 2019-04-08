@@ -20,6 +20,19 @@
     <color name="dynamic_more">#a99ced</color>
     <color name="black">#000000</color>
     <color name="color_94A6B3">#94A6B3</color>
-    <color name="color_333333_black">#333333</color>
+    <color name="theme_divide_line_gray">#E3E3E3</color>
     <color name="longin_btn">#f7b3c5</color>
+    <color name="theme_color">#45B6EF</color>
+    <color name="theme_red">#E33B3B</color>
+    <color name="theme_gray">#777777</color>
+    <color name="theme_text_gray">#868686</color>
+    <color name="theme_text_black">#333333</color>
+    <color name="theme_text_blue">#45B6EF</color>
+    <color name="color_cccccc">#cccccc</color>
+
+
+    <color name="color_000000_black">#000000</color>
+    <color name="color_555555_black">#555555</color>
+    <color name="color_888888_black">#888888</color>
+    <color name="color_333333_black">#333333</color>
 </resources>

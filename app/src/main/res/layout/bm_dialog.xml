@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp210"
+    android:layout_centerInParent="true"
+    android:layout_marginLeft="@dimen/dp20"
+    android:layout_marginRight="@dimen/dp20"
+    android:background="@drawable/shape_diglog">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_btn">
+
+        <TextView
+            android:id="@+id/tv_dialog_notice_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp11"
+            android:layout_marginRight="@dimen/dp11"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_l"
+            tools:text="8888888"/>
+
+        <LinearLayout
+            android:id="@+id/ll_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp35"
+                android:text="1233"
+                android:textColor="@color/color_000000_black"
+                android:textSize="@dimen/font_l"/>
+
+            <EditText
+                android:id="@+id/et_dialog_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginLeft="@dimen/dp22"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginRight="@dimen/dp22"
+                android:background="@drawable/shape_gray_corner"
+                android:digits="@string/et_password_input_type"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLength="8"
+                android:paddingLeft="@dimen/dp19"
+                android:paddingTop="@dimen/dp3"
+                android:paddingRight="@dimen/dp19"
+                android:paddingBottom="@dimen/dp3"
+                android:textCursorDrawable="@drawable/shape_edittext"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp20"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp22"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_weight="1"
+            android:background="@drawable/shape_dialog_bg_white"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="取消"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_l"/>
+
+        <TextView
+            android:id="@+id/btn_dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp22"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner_blue_ripper"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_l"/>
+    </LinearLayout>
+</RelativeLayout>

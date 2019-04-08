@@ -9,11 +9,33 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi-v7a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64','armeabi', 'arm64-v8a'
+        }
+
+        /*    -----------    极光推送   -------------*/
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "d6962b9ac9e733d61b114a62", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+        /*    -----------    极光推送   -------------*/
+
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            minifyEnabled false
+
         }
     }
 
@@ -48,6 +70,14 @@ dependencies {
     implementation 'com.zhihu.android:matisse:0.5.2-beta2'
     //日志
     implementation 'com.orhanobut:logger:2.2.0'
+
+    //极光
+    implementation 'cn.jiguang.sdk:jpush:3.1.6'
+    implementation 'cn.jiguang.sdk:jcore:1.2.5'
+
+    //  事件
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

@@ -14,6 +14,7 @@ import com.qixiao.bm.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
 
 public class LoginActivity extends BaseActivity {
 
@@ -54,6 +55,7 @@ public class LoginActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
+                JPushInterface.setAlias(mContext,  1, "y");
                 toActivity(MainActivity.class);
                 break;
             case R.id.tv_login_register:

@@ -10,14 +10,17 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.qixiao.bm.BMApplication;
 import com.qixiao.bm.R;
 import com.qixiao.bm.activity.MyDetailInfo;
 import com.qixiao.bm.base.BaseFragment;
+import com.qixiao.bm.widget.BMDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import cn.jpush.android.api.JPushInterface;
 
 public class MyFragment extends BaseFragment {
 
@@ -91,6 +94,23 @@ public class MyFragment extends BaseFragment {
             case R.id.layout_my_list_up:
                 break;
             case R.id.btn_mine_exit:
+                final BMDialog dialog = new BMDialog(mContext);
+                dialog.show();
+                dialog.setDialogMessage("是否退出登陆？");
+                dialog.setOnConfirmClickListener(new BMDialog.OnConfirmClickListener() {
+                    @Override
+                    public void onConfirmClick() {
+                        dialog.dismiss();
+                        JPushInterface.deleteAlias(mContext,1);
+                        BMApplication.exit();
+                    }
+                });
+                dialog.setOnCancelClickListener(new BMDialog.OnCancelClickListener() {
+                    @Override
+                    public void onCancelClick() {
+                        dialog.dismiss();
+                    }
+                });
                 break;
         }
     }
