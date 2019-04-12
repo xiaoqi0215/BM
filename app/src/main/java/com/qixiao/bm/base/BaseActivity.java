@@ -33,7 +33,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public static String TAG;
     protected Context mContext;
     private Unbinder unbinder;
-    private SharedPreferencesUtils msp;
+    protected SharedPreferencesUtils msp;
 
     protected abstract int getContentView();
 

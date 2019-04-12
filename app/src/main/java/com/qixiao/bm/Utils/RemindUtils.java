@@ -127,6 +127,8 @@ public class RemindUtils {
          * @return
          */
         public static Uri insertCalendarEvent(Context context, long calendar_id, String title, String description , long begintime, long endtime){
+
+
             ContentValues event = new ContentValues();
             event.put("title", title);
             event.put("description", description);
@@ -191,7 +193,7 @@ public class RemindUtils {
                 return;
             }
             //根据标题、描述、开始时间查看提醒事件是否已经存在
-            String event_id = queryCalendarEvent(context,calendar_id,title,description,begintime,endtime);
+            String event_id = queryCalendarEvent(context,calendar_id,title,null,begintime,endtime);
             //如果提醒事件不存在，则新建事件
             if(TextUtils.isEmpty(event_id)){
                 Uri newEvent = insertCalendarEvent(context,calendar_id,title,description,begintime,endtime);
@@ -213,7 +215,6 @@ public class RemindUtils {
        //     Uri uri = context.getContentResolver().insert(Uri.parse("qixiao://demo:8888/second"), values);
             Uri uri = context.getContentResolver().insert(Uri.parse(calanderRemiderURL), values);
 
-            Log.e("tag",uri.toString());
             if(uri == null) {
                 // 添加提醒失败直接返回
                 if(null != callback){
@@ -236,7 +237,7 @@ public class RemindUtils {
          * @param startTime 事件的开始时间
          * @param callback 删除成功与否的监听回调
          */
-        public static void deleteCalendarEventRemind(Context context, String title, String description, long startTime,onCalendarRemindListener callback){
+        public static void deleteCalendarEventRemind(Context context, String title, String description,onCalendarRemindListener callback){
             Cursor eventCursor = context.getContentResolver().query(Uri.parse(calanderEventURL), null, null, null, null);
             try {
                 if (eventCursor == null)//查询返回空值
@@ -246,8 +247,8 @@ public class RemindUtils {
                     for (eventCursor.moveToFirst(); !eventCursor.isAfterLast(); eventCursor.moveToNext()) {
                         String eventTitle = eventCursor.getString(eventCursor.getColumnIndex("title"));
                         String eventDescription = eventCursor.getString(eventCursor.getColumnIndex("description"));
-                        long dtstart = eventCursor.getLong(eventCursor.getColumnIndex("dtstart"));
-                        if (!TextUtils.isEmpty(title) && title.equals(eventTitle) && !TextUtils.isEmpty(description) && description.equals(eventDescription) && dtstart==startTime ) {
+                      //  long dtstart = eventCursor.getLong(eventCursor.getColumnIndex("dtstart"));
+                        if (!TextUtils.isEmpty(title) && title.equals(eventTitle) ) {
                             int id = eventCursor.getInt(eventCursor.getColumnIndex(CalendarContract.Calendars._ID));//取得id
                             Uri deleteUri = ContentUris.withAppendedId(Uri.parse(calanderEventURL), id);
                             int rows = context.getContentResolver().delete(deleteUri, null, null);

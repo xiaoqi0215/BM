@@ -1,7 +1,9 @@
 package com.qixiao.bm.fragment;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 
 import com.qixiao.bm.BMApplication;
 import com.qixiao.bm.R;
+import com.qixiao.bm.Utils.RemindUtils;
+import com.qixiao.bm.Utils.SQLiteUtils;
 import com.qixiao.bm.activity.MyDetailInfo;
 import com.qixiao.bm.base.BaseFragment;
 import com.qixiao.bm.widget.BMDialog;
@@ -101,6 +105,9 @@ public class MyFragment extends BaseFragment {
                     @Override
                     public void onConfirmClick() {
                         dialog.dismiss();
+                        delteCalendarEvent();
+                        SQLiteUtils.close();
+                        SQLiteUtils.drop();
                         JPushInterface.deleteAlias(mContext,1);
                         BMApplication.exit();
                     }
@@ -113,5 +120,38 @@ public class MyFragment extends BaseFragment {
                 });
                 break;
         }
+    }
+
+    private void delteCalendarEvent() {
+        Cursor cursor =SQLiteUtils.query("friend",null,null,null,null,null);
+       int way;
+       String name;
+       int start;
+       int end;
+       int year;
+       int month;
+       int day;
+       String title ;
+        while (cursor.moveToNext()){
+            name= cursor.getString(cursor.getColumnIndex("name"));
+            Log.e("TAG","删除的姓名："+name);
+//            way = cursor.getInt(cursor.getColumnIndex("way"));
+//            year = cursor.getInt(cursor.getColumnIndex("year"));
+//            month= cursor.getInt(cursor.getColumnIndex("month"));
+//            day=cursor.getInt(cursor.getColumnIndex("day"));
+            RemindUtils.deleteCalendarEventRemind(BMApplication.getContext(), name+"的生日", null,  new RemindUtils.onCalendarRemindListener() {
+                @Override
+                public void onFailed(Status error_code) {
+                    Log.e("TAG","事件提醒删除失败");
+                }
+
+                @Override
+                public void onSuccess() {
+                    Log.e("TAG","事件提醒删除成功");
+                }
+            });
+        }
+
+
     }
 }

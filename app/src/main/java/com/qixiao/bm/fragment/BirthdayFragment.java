@@ -2,17 +2,22 @@ package com.qixiao.bm.fragment;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.qixiao.bm.BMApplication;
+import com.qixiao.bm.BMContants;
 import com.qixiao.bm.BirthdayListBean;
 import com.qixiao.bm.R;
+import com.qixiao.bm.Utils.SQLiteUtils;
 import com.qixiao.bm.activity.AddFriendActivity;
 import com.qixiao.bm.adapter.BirthdayAdapter;
 import com.qixiao.bm.base.BaseFragment;
+import com.qixiao.bm.bean.db.DBFriendBean;
 import com.qixiao.bm.widget.BMDialog;
 
 import java.util.ArrayList;
@@ -29,6 +34,7 @@ public class BirthdayFragment extends BaseFragment {
     BirthdayAdapter mAdapter;
 
     List<BirthdayListBean> data;
+    List<DBFriendBean> dbData;
     public  final static int  EDIT_FRIEND=100;
 
     @Override
@@ -43,13 +49,10 @@ public class BirthdayFragment extends BaseFragment {
 
     @Override
     protected void initView(View rootView) {
+        dbData = new ArrayList<>();
+        queryAllFriend();
 
-        data = new ArrayList<>();
-        for(int i = 0 ;i<5;i++){
-            BirthdayListBean bean  = new BirthdayListBean();
-            data.add(bean);
-        }
-        mAdapter = new BirthdayAdapter(getActivity(),data);
+        mAdapter = new BirthdayAdapter(getActivity(),dbData);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mFriendRv.setLayoutManager(linearLayoutManager);
         mFriendRv.addItemDecoration(new BirthdayAdapter.SpaceItemDecoration(15));
@@ -86,6 +89,39 @@ public class BirthdayFragment extends BaseFragment {
 
     }
 
+    private void queryAllFriend() {
+
+        Cursor cursor = SQLiteUtils.query(BMContants.DBFRIEND,null,null,null,null,null);
+        if(cursor!=null){
+            while(cursor.moveToNext()){
+                DBFriendBean dbFriendBean =new DBFriendBean();
+                String friendName = cursor.getString(cursor.getColumnIndex("name"));
+                int friendAge = cursor.getInt(cursor.getColumnIndex("age"));
+                int id = cursor.getInt(cursor.getColumnIndex("id"));
+                String friendTel = cursor.getString(cursor.getColumnIndex("tel"));
+                int friendWay = cursor.getInt(cursor.getColumnIndex("way"));
+                int friendYear = cursor.getInt(cursor.getColumnIndex("year"));
+                int userId = cursor.getInt(cursor.getColumnIndex("userId"));
+                String friendIcon = cursor.getString(cursor.getColumnIndex("icon"));
+                String word = cursor.getString(cursor.getColumnIndex("word"));
+                int friendMonth = cursor.getInt(cursor.getColumnIndex("month"));
+                int friendDay = cursor.getInt(cursor.getColumnIndex("day"));
+                dbFriendBean.setAge(friendAge);
+                dbFriendBean.setId(id);
+                dbFriendBean.setUserId(userId);
+                dbFriendBean.setName(friendName);
+                dbFriendBean.setYear(friendYear);
+                dbFriendBean.setTel(friendTel);
+                dbFriendBean.setWay(friendWay);
+                dbFriendBean.setIcon(friendIcon);
+                dbFriendBean.setDay(friendDay);
+                dbFriendBean.setMonth(friendMonth);
+                dbData.add(dbFriendBean);
+                Log.e("TAG", "姓名："+friendName+" "+"年龄："+friendAge+" "+"电话："+friendTel+"way"+friendWay+"year"+friendYear);
+            }
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -101,14 +137,7 @@ public class BirthdayFragment extends BaseFragment {
 
     }
 
-//    @OnClick({R.id.iv_birthday_tab_add})
-//    public void onViewClicked(View view) {
-//        switch (view.getId()) {
-//            case R.id.iv_birthday_tab_add:
-//
-//                showPopWindow();
-//        }
-//    }
+
 
 
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.qixiao.bm.BirthdayListBean;
 import com.qixiao.bm.R;
+import com.qixiao.bm.Utils.CalendarUtil;
 import com.qixiao.bm.activity.AddFriendActivity;
 import com.qixiao.bm.base.BaseActivity;
+import com.qixiao.bm.bean.db.DBFriendBean;
 import com.qixiao.bm.fragment.BirthdayFragment;
 import com.qixiao.bm.widget.BMDialog;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,8 +36,11 @@ public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHo
 
 
     Context context;
-    List<BirthdayListBean> data;
+    List<DBFriendBean> data;
     OnItenLClickListener clickListener;
+    int currentDay;
+    int currentMonth;
+    int currentYear;
 
     public void setClickListener(OnItenLClickListener clickListener) {
         this.clickListener = clickListener;
@@ -44,12 +52,18 @@ public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHo
 
     OnItenLongClickListener longClickListener;
 
-    public BirthdayAdapter(Context context, List<BirthdayListBean> data) {
+    public BirthdayAdapter(Context context, List<DBFriendBean> data) {
         this.context = context;
         this.data = data;
+        Calendar calendar = Calendar.getInstance();
+
+        currentYear = calendar.get(Calendar.YEAR);
+        currentMonth = calendar.get(Calendar.MONTH)+1;
+        currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+
     }
 
-    public  void  setData(List<BirthdayListBean> data){
+    public  void  setData(List<DBFriendBean> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -64,6 +78,19 @@ public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        DBFriendBean bean =data.get(i);
+        String name =bean.getName()!=null?bean.getName():" ";
+        int age = bean.getAge();
+
+        int month = bean.getMonth();
+        int day = bean.getDay();
+        int year = bean.getYear();
+
+        viewHolder.mNameTv.setText(name);
+        int between = CalendarUtil.dayToDay(currentYear,currentMonth,currentDay,
+                year,month,day);
+        viewHolder.mAgeTv.setText(between+"天后过"+age+"岁生日");
+        viewHolder.mBirthdayTv.setText(month+"月"+day);
         RequestOptions options = RequestOptions
                 .circleCropTransform()
                 .diskCacheStrategy(DiskCacheStrategy.ALL);

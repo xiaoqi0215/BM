@@ -53,13 +53,13 @@ public   class NineLayout extends ViewGroup {
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction,  Rect previouslyFocusedRect) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-        Log.e("TAG","NineLayout:onFocusChanged");
+       // Log.e("TAG","NineLayout:onFocusChanged");
     }
 
     @Override
     public void addOnAttachStateChangeListener(OnAttachStateChangeListener listener) {
         super.addOnAttachStateChangeListener(listener);
-        Log.e("TAG","NineLayout:addOnAttachStateChangeListener");
+      //  Log.e("TAG","NineLayout:addOnAttachStateChangeListener");
     }
 
     public void setData(List<String> urlList){
@@ -89,13 +89,13 @@ public   class NineLayout extends ViewGroup {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Log.e("TAG","NineLayout:NineLayout");
+     //   Log.e("TAG","NineLayout:NineLayout");
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-        Log.e("TAG","NineLayout:NineLayout");
+      //  Log.e("TAG","NineLayout:NineLayout");
     }
 
     public NineLayout(Context context, AttributeSet attrs) {
@@ -111,7 +111,7 @@ public   class NineLayout extends ViewGroup {
         mSpace = typedArray.getDimension(R.styleable.NineLayout_space,DEFAULR_SPPACE);
         typedArray.recycle();
         init();
-        Log.e("TAG","NineLayout:NineLayout");
+      //  Log.e("TAG","NineLayout:NineLayout");
     }
 
 
@@ -135,7 +135,7 @@ public   class NineLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.e("TAG","NineLayout:onMeasure");
+       // Log.e("TAG","NineLayout:onMeasure");
     }
 
 
@@ -174,7 +174,7 @@ public   class NineLayout extends ViewGroup {
         dataHasChange();
         isFirst = false;
     }
-        Log.e("TAG","NineLayout:onLayout");
+      //  Log.e("TAG","NineLayout:onLayout");
     }
 
     public void  dataHasChange(){
@@ -244,7 +244,7 @@ public   class NineLayout extends ViewGroup {
             mRows = temp+1;
         }
         mColumns =3;
-        Log.e("TAG ROW",+mRows+" " +mColumns);
+      //  Log.e("TAG ROW",+mRows+" " +mColumns);
     }
 
     protected void setOneImageLayoutParams(ImageView imageView, int width, int height) {
@@ -256,7 +256,7 @@ public   class NineLayout extends ViewGroup {
     }
 
     protected  boolean displayOneImage(final ImageView imageView, String url, int mTotalWidth){
-        Log.e("TAG","MyNineLayout:displayOneImage");
+      //  Log.e("TAG","MyNineLayout:displayOneImage");
 
         Glide.with(mContext)
                 .asBitmap()
@@ -295,7 +295,7 @@ public   class NineLayout extends ViewGroup {
     }
 
     protected  void displayImage(ImageView imageView, String s){
-        Log.e("TAG","MyNineLayout:displayImage");
+     //   Log.e("TAG","MyNineLayout:displayImage");
         Glide.with(mContext)
                 .load(s)
                 .into(imageView);

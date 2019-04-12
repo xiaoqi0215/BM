@@ -140,6 +140,19 @@ public class CalendarUtil {
      return ((lunar200y[y-MIN_YEAR] & 0xf00000) >>20);
     }
 
+    public static  int dayToDay(int sYear,int sMonth,int sDay,int eYear,int eMonth,int eDay){
+        Calendar calenda = Calendar.getInstance();
+        calenda.set(sYear, sMonth, sDay, 0, 0, 0);
+
+        Calendar calenda1 = Calendar.getInstance();
+        calenda1.set(eYear, eMonth, eDay, 0, 0, 0);
+
+        int day = (int) ((calenda1.getTimeInMillis() / 1000 / 60 / 60 / 24)
+                - (calenda.getTimeInMillis() / 1000 / 60 / 60 / 24));
+
+        return day;
+
+    }
 
     static int lunarMonthDays(int y, int m)
 
@@ -192,7 +205,6 @@ public class CalendarUtil {
     }
 
     static int[] solarMonth = new int[]{0,31,28,31,30,31,30,31,30,31,31,30,31};
-
 
    static boolean toYear(int year){
        if (year%4==0&&year%100!=0||year%400==0){
