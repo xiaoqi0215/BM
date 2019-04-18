@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.qixiao.bm.R;
 import com.qixiao.bm.Utils.SharedPreferencesUtils;
+import com.qixiao.bm.widget.CustomProgressDialog;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -34,6 +36,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     protected Context mContext;
     private Unbinder unbinder;
     protected SharedPreferencesUtils msp;
+    private CustomProgressDialog mProgressDialog;
 
     protected abstract int getContentView();
 
@@ -77,12 +80,28 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         showProgress("");
     }
 
+
     /**
      * 显示ProgressDialog
      */
     @Override
     public void showProgress(String msg) {
 
+        if (mContext == null) {
+            return;
+        }
+
+        if (mProgressDialog == null) {
+            mProgressDialog = new CustomProgressDialog.Builder(mContext)
+                    .setTheme(R.style.ProgressDialogStyle)
+                    .setMessage(msg)
+                    .cancelTouchOutside(false)
+                    .build();
+        }
+        Log.d("========", mProgressDialog.isShowing() + "");
+        if (!mProgressDialog.isShowing()) {
+            mProgressDialog.show();
+        }
     }
 
     /**
@@ -90,7 +109,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
      */
     @Override
     public void dismissProgress() {
-
+        if (mProgressDialog!=null)
+        mProgressDialog.dismiss();
     }
 
     public void showToast(int msgResid) {

@@ -9,16 +9,17 @@
     android:layout_marginRight="@dimen/dp20"
     android:background="@drawable/shape_diglog">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_above="@+id/ll_btn">
 
         <TextView
             android:id="@+id/tv_dialog_notice_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/dp11"
             android:layout_marginRight="@dimen/dp11"
             android:paddingLeft="@dimen/dp10"
@@ -26,44 +27,42 @@
             android:textColor="@color/black"
             android:textSize="@dimen/font_l"
             tools:text="8888888"/>
+        <RadioGroup
+            android:id="@+id/rg_dialog_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/dp5"
+            android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/ll_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/tv_dialog_title"
+            <RadioButton
+                android:id="@+id/rb_dialog_one"
                 android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp35"
-                android:text="1233"
-                android:textColor="@color/color_000000_black"
-                android:textSize="@dimen/font_l"/>
+                android:text="@string/remind_one" />
 
-            <EditText
-                android:id="@+id/et_dialog_content"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp40"
-                android:layout_marginLeft="@dimen/dp22"
-                android:layout_marginTop="@dimen/dp30"
-                android:layout_marginRight="@dimen/dp22"
-                android:background="@drawable/shape_gray_corner"
-                android:digits="@string/et_password_input_type"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:lines="1"
-                android:maxLength="8"
-                android:paddingLeft="@dimen/dp19"
-                android:paddingTop="@dimen/dp3"
-                android:paddingRight="@dimen/dp19"
-                android:paddingBottom="@dimen/dp3"
-                android:textCursorDrawable="@drawable/shape_edittext"/>
-        </LinearLayout>
-    </RelativeLayout>
+            <RadioButton
+                android:id="@+id/rb_dialog_three"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+
+                android:text="@string/remind_three" />
+            <RadioButton
+                android:id="@+id/rb_dialog_seven"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/remind_senen" />
+
+        </RadioGroup>
+
+    </LinearLayout>
 
 
     <LinearLayout

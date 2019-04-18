@@ -7,6 +7,7 @@ import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.qixiao.bm.R;
@@ -24,9 +25,7 @@ public class BMDialog extends Dialog {
     private TextView mBtnConfirm;
     private TextView mBtnCancel;
     private TextView mTvMessage;
-    private LinearLayout mLlInput;
-    private TextView mTvTitle;
-    private EditText mEtContent;
+    private RadioGroup mRgRemind;
 
     public void setOnConfirmClickListener(OnConfirmClickListener onConfirmClickListener) {
         this.mOnConfirmClickListener = onConfirmClickListener;
@@ -76,34 +75,26 @@ public class BMDialog extends Dialog {
         });
     }
 
-    public void setInputType(int type) {
-        mEtContent.setInputType(type);
-    }
-
-    public void setInputHint(String hint) {
-        mEtContent.setHint(hint);
-    }
-
-    public void setInputLength(int length) {
-        //手动设置maxLength
-        InputFilter[] filters = {new InputFilter.LengthFilter(length)};
-        mEtContent.setFilters(filters);
-    }
-
     public void setDialogMessage(String message) {
         mTvMessage.setText(message);
     }
 
-    public void setDialogTitle(String title) {
-        mTvTitle.setText(title);
+
+    public String getRemidWay() {
+        switch (mRgRemind.getCheckedRadioButtonId()){
+            case R.id.rb_dialog_one:
+                return "提前一天";
+            case R.id.rb_dialog_three:
+                return "提前三天";
+            case R.id.rb_dialog_seven:
+                return "提前七天";
+        }
+        return " ";
+
     }
 
-    public String getInput() {
-        return mEtContent.getText().toString();
-    }
-
-    public void showInput() {
-        mLlInput.setVisibility(View.VISIBLE);
+    public void showRemind() {
+        mRgRemind.setVisibility(View.VISIBLE);
         mTvMessage.setVisibility(View.GONE);
     }
 
@@ -111,9 +102,7 @@ public class BMDialog extends Dialog {
         mBtnConfirm = ((TextView) findViewById(R.id.btn_dialog_confirm));
         mBtnCancel = (TextView) findViewById(R.id.btn_dialog_cancel);
         mTvMessage = (TextView) findViewById(R.id.tv_dialog_notice_message);
-        mLlInput = (LinearLayout) findViewById(R.id.ll_input);
-        mTvTitle = (TextView) findViewById(R.id.tv_dialog_title);
-        mEtContent = (EditText) findViewById(R.id.et_dialog_content);
+        mRgRemind = findViewById(R.id.rg_dialog_remind);
     }
 
     public void setConfirmText(String text) {

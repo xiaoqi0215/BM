@@ -1,7 +1,10 @@
 package com.qixiao.bm.activity;
 
+import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 
+import com.qixiao.bm.BMContants;
 import com.qixiao.bm.R;
 import com.qixiao.bm.base.BaseActivity;
 
@@ -45,8 +48,14 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(3000);
-                    toActivity(LoginActivity.class);
+                    Thread.sleep(1000);
+                    if (TextUtils.isEmpty(msp.getString(BMContants.USER_TEL))){
+                        toActivity(LoginActivity.class);
+                    }else {
+                        Intent intent = new Intent(mContext,MainActivity.class);
+                        intent.putExtra("type","new");
+                        toActivity(intent);
+                    }
                     finish();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

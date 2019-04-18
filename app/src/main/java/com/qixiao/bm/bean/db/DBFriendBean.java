@@ -14,13 +14,40 @@ public class DBFriendBean {
     int month;
     int way;
     int userId;
-    boolean solar;
+    int solar;
+    int hour;
+    int mintue;
+    int sex;
 
-    public boolean isSolar() {
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMintue() {
+        return mintue;
+    }
+
+    public void setMintue(int mintue) {
+        this.mintue = mintue;
+    }
+
+    public int getSolar() {
         return solar;
     }
 
-    public void setSolar(boolean solar) {
+    public void setSolar(int solar) {
         this.solar = solar;
     }
 

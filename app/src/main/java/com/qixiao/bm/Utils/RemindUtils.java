@@ -128,7 +128,10 @@ public class RemindUtils {
          */
         public static Uri insertCalendarEvent(Context context, long calendar_id, String title, String description , long begintime, long endtime){
 
-
+            SharedPreferencesUtils msp = new SharedPreferencesUtils(context);
+            if (!TextUtils.isEmpty(queryCalendarEvent(context,msp.getLong("calanderAccount"),title,null,begintime,endtime))){
+                return null;
+            }
             ContentValues event = new ContentValues();
             event.put("title", title);
             event.put("description", description);
@@ -138,10 +141,19 @@ public class RemindUtils {
             event.put(CalendarContract.Events.DTEND, endtime);//非重复事件：必须有
             event.put(CalendarContract.Events.HAS_ALARM, 1);//设置有闹钟提醒
             event.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());//这个是时区，必须有，
+
             //添加事件
             Uri newEvent = context.getContentResolver().insert(Uri.parse(calanderEventURL), event);
             return newEvent;
         }
+
+
+    public static String updateCalendarEvent(Context context,long calendar_id, String title,String description , long begintime, long endtime){
+         deleteCalendarEventRemind(context,title,null,null);
+         insertCalendarEvent(context,calendar_id,title,null,begintime,endtime);
+            return  null;
+
+    }
 
         /**
          * 查询日历事件
@@ -234,7 +246,6 @@ public class RemindUtils {
          * @param context
          * @param title 提醒的标题
          * @param description 提醒的描述：deeplink URI
-         * @param startTime 事件的开始时间
          * @param callback 删除成功与否的监听回调
          */
         public static void deleteCalendarEventRemind(Context context, String title, String description,onCalendarRemindListener callback){

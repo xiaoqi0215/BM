@@ -4,4 +4,7 @@
     <string name="add_widget">Add widget</string>
     <string name="et_password_input_type">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="cancel">取消</string>
+    <string name="remind_one">提前一天</string>
+    <string name="remind_three">提前三天</string>
+    <string name="remind_senen">提前七天</string>
 </resources>

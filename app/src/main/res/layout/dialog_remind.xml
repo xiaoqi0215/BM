@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--<RadioGroup-->
+        <!--android:id="@+id/rg_dialog_remind"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginTop="@dimen/dp5"-->
+        <!--android:layout_toRightOf="@id/tv_addfriend_sex"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_dialog_now"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:text="当天10点" />-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_dialog_one"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="提前一天" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_dialog_three"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:text="提前三天" />-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_dialog_seven"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:text="提前七天" />-->
+
+    <!--</RadioGroup>-->
+</LinearLayout>

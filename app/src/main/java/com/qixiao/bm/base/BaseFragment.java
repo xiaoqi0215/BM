@@ -5,11 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+
+import com.qixiao.bm.R;
+import com.qixiao.bm.widget.CustomProgressDialog;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -27,6 +31,7 @@ public abstract class BaseFragment<P extends BasePresenterImpl> extends Fragment
     public static String TAG;
 
     private Unbinder unbinder;
+    private CustomProgressDialog mProgressDialog;
 
     /**
      * 视图是否已经初初始化
@@ -108,7 +113,21 @@ public abstract class BaseFragment<P extends BasePresenterImpl> extends Fragment
      */
     @Override
     public void showProgress(String msg) {
+        if (mContext == null) {
+            return;
+        }
 
+        if (mProgressDialog == null) {
+            mProgressDialog = new CustomProgressDialog.Builder(mContext)
+                    .setTheme(R.style.ProgressDialogStyle)
+                    .setMessage(msg)
+                    .cancelTouchOutside(false)
+                    .build();
+        }
+        Log.d("========", mProgressDialog.isShowing() + "");
+        if (!mProgressDialog.isShowing()) {
+            mProgressDialog.show();
+        }
     }
 
 
@@ -117,7 +136,7 @@ public abstract class BaseFragment<P extends BasePresenterImpl> extends Fragment
      */
     @Override
     public void dismissProgress() {
-
+    mProgressDialog.dismiss();
     }
 
 

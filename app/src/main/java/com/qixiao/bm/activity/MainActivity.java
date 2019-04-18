@@ -2,10 +2,13 @@ package com.qixiao.bm.activity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -16,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,7 +30,9 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.qixiao.bm.BMApplication;
+import com.qixiao.bm.BMContants;
 import com.qixiao.bm.R;
+import com.qixiao.bm.Utils.CalendarUtil;
 import com.qixiao.bm.Utils.RemindUtils;
 import com.qixiao.bm.Utils.SQLiteUtils;
 import com.qixiao.bm.base.BaseActivity;
@@ -48,6 +54,7 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends BaseActivity<MainActivityContract.Presenter> implements MainActivityContract.View {
+
     @BindView(R.id.main_mytab)
     RadioGroup rb;
     @BindView(R.id.main_tab_my)
@@ -87,12 +94,21 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
 
     @Override
     protected void initView() {
-        setDefault();
+        Intent intent = getIntent();
+        String type = intent.getStringExtra("type");
+        if (type.equals("login")){
+            setDefault();
+        }else{
+            SQLiteUtils.createDB();
+            initContentView();
+        }
+
     }
 
     private void setDefault() {
         actionBar.hihLeft();
         actionBar.hihRight();
+     //   layoutMianDefault.setVisibility(View.VISIBLE);
         actionBar.setTitleText("生日管家");
         final BMDialog dialog = new BMDialog(this);
         dialog.show();
@@ -120,9 +136,9 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
     }
     private void downFromInternet() {
         friendData = new ArrayList<>();
-        setCanlenarEvent(friendData);
         ContentValues cv = new ContentValues();
         cv.put("name", "qiqi");
+        cv.put("solar", 1);
         cv.put("age", 12);
         cv.put("way", 1);
         cv.put("year", 2019);
@@ -130,78 +146,29 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
         cv.put("day", 13);
         cv.put("userId", 1);
         cv.put("tel", "152490155");
-        SQLiteUtils.insert(cv, "friend");
-        DBFriendBean bean = new DBFriendBean();
-        bean.setName("qiqi");
-        bean.setYear(2019);
-        bean.setMonth(4);
-        bean.setDay(12);
-        bean.setWay(1);
-        friendData.add(bean);
-        setCanlenarEvent(friendData);
+      //  SQLiteUtils.insert(cv, "friend");
+
+            DBFriendBean bean = new DBFriendBean();
+            bean.setName("qiqi");
+            bean.setYear(2019);
+            bean.setMonth(4);
+            bean.setDay(12);
+            bean.setWay(1);
+            friendData.add(bean);
+
     }
-    private void setCanlenarEvent(List<DBFriendBean> friendData) {
-        int accountId = RemindUtils.checkCalendarAccounts(this);
-        if (accountId==0) {
-            showToast("提醒事件添加失败");
-            return;
-        }
-        for (int i = 0 ;i < friendData.size();i++){
-            int way = friendData.get(i).getWay();
-            String wayString ;
-            int time;
-            if (way==1) {
-                time = 86400*1;
-                wayString = friendData.get(i).getName() + "的生日还有一天就要到了";
-            }else if (way==2){
-                time = 86400*3;
-                wayString = friendData.get(i).getName() + "的生日还有三天就要到了";
-            }else if (way==3){
-                time = 86400*7;
-                wayString = friendData.get(i).getName() + "的生日还有七天就要到了";
-            }else{
-                time = 1;
-                wayString = friendData.get(i).getName() + "的生日到了";
-            }
-            String title = friendData.get(i).getName()+"的生日";
-            //开始时间
-            Calendar mCalendar = Calendar.getInstance();
-            mCalendar.set(Calendar.YEAR,friendData.get(i).getYear());
-            mCalendar.set(Calendar.MONTH,friendData.get(i).getMonth()-1);
-            mCalendar.set(Calendar.DAY_OF_MONTH,friendData.get(i).getDay());
-            mCalendar.set(Calendar.HOUR_OF_DAY, 9);
-            mCalendar.set(Calendar.MINUTE,14);
-            long start =  mCalendar.getTimeInMillis();
-            //截止时间，如果需要设置一周或者一个月可以改截止日期即可
-            mCalendar.set(Calendar.YEAR,friendData.get(i).getYear());
-            mCalendar.set(Calendar.MONTH,friendData.get(i).getMonth()-1);
-            mCalendar.set(Calendar.DAY_OF_MONTH,friendData.get(i).getDay());
-            mCalendar.set(Calendar.HOUR_OF_DAY, 20);
-            mCalendar.set(Calendar.MINUTE,10);
-            long end = mCalendar.getTimeInMillis();
 
-            Log.e("TAG",start+" "+end);
-            RemindUtils.insertCalendarEvent(BMApplication.getContext(),accountId,title,null, start,end);
-            RemindUtils.addCalendarEventRemind(BMApplication.getContext(), title, wayString, start, end, 1, new RemindUtils.onCalendarRemindListener() {
-                @Override
-                public void onFailed(Status error_code) {
 
-                }
-
-                @Override
-                public void onSuccess() {
-                    Log.e("TAG","事件提醒添加成功");
-                }
-            });
-        }
-    }
 
     private void initContentView() {
-        layoutMianDefault.setVisibility(View.GONE);
+        if (msp.getLong("calanderAccount")!=0){
+            long  calanderAccount = RemindUtils.addCalendarAccount(BMApplication.getContext());
+            msp.setLong("calanderAccount",calanderAccount);
+        }
 
+        layoutMianDefault.setVisibility(View.GONE);
         mainFragmentlayout.setVisibility(View.VISIBLE);
 
-        actionBar.showRight();
         mTabAdd = actionBar.getRighttv();
         FragmentTransaction transaction;
         mTabAdd.setOnClickListener(this);
@@ -236,6 +203,7 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
                         Toast.makeText(MainActivity.this, "s", Toast.LENGTH_SHORT).show();
                         rbBirthday.setChecked(true);
                         addFragment(0);
+                        actionBar.showRight();
                         break;
                 }
             }
@@ -293,10 +261,11 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    showToast(position + "");
-                    toActivity(AddFriendActivity.class);
+                   // showToast(position + "");
+                  //  Intent intent = new Intent(MainActivity.this,AddFriendActivity.class);
+                 //   toActivity(intent,RESULT_CODE_TOADDFRIEND);
                 } else if (position == 1) {
-                    showToast(position + "");
+                 //   showToast(position + "");
                 }
             }
         });
@@ -313,11 +282,9 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
 
     }
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

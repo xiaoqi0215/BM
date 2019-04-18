@@ -16,7 +16,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         String user_table="create table user(id integer primary key autoincrement,name VARCHAR(20),icon VARCHAR(300),tel VARCHAR(12),pwd VARCHAR(10))";
 
         String dynamic_table="create table dynamic(id integer primary key autoincrement,userId integer,contents VARCHAR(1500),picture varchar(1500),cteateTime DATA)";
-        String friend_table="create table friend(id integer primary key autoincrement, name varchar(20),  solar boolean,age integer,tel varchar(12) ,word  varchar(100),  icon  varchar(300),year  integer, month  integer,day  integer,way  integer,  userId  integer)"  ;
+        String friend_table="create table friend(id integer primary key autoincrement, name varchar(20),sex integer, hour integer,mintue integer,  solar integer,age integer,tel varchar(12) ,word  varchar(100),  icon  varchar(300),year  integer, month  integer,day  integer,way  integer,  userId  integer)"  ;
 
         //执行SQL语句
         db.execSQL(user_table);

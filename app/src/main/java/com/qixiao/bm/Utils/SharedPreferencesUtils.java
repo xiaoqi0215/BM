@@ -31,6 +31,11 @@ public class SharedPreferencesUtils {
         editor.putInt(key,value);
         editor.commit();
     }
+    public void setLong(String key,long  value){
+        editor = sp.edit();
+        editor.putLong(key,value);
+        editor.commit();
+    }
     public void setBoolean(String key,boolean  value){
         editor = sp.edit();
         editor.putBoolean(key,value);
@@ -45,6 +50,9 @@ public class SharedPreferencesUtils {
     }
     public int getInt(String key){
         return sp.getInt(key,0);
+    }
+    public Long getLong(String key){
+        return sp.getLong(key,0);
     }
 
 }

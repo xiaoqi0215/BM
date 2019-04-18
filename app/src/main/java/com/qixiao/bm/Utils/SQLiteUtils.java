@@ -24,24 +24,32 @@ public class SQLiteUtils {
     public static void insert(ContentValues cValue, String tableName){
             if (cValue !=null){
                 db.insert(tableName,null,cValue);
+
             }
         }
 
-    public static void delete(String sql) {
-        db.execSQL(sql);
+    public static void delete(String tableName,String col,String[] valus) {
+        db.delete(tableName,col,valus);
     }
 
-    public static void update(String sql){
+    public static void update(String tableName,ContentValues values,String whereClause, String[] whereArgs){
 
-        //执行SQL
-        db.execSQL(sql);
+        db.update(tableName,values,whereClause,whereArgs);
     }
     public static Cursor  query(String tableName, String[] columns, String selection,
                                 String[] selectionArgs, String groupBy,String orderBy){
-        //执行SQL
+
         Cursor cursor =db.query(tableName, columns, selection, selectionArgs, groupBy,null, orderBy);
         return cursor;
     }
+
+    public static Cursor  query(String sql){
+
+        Cursor cursor =db.rawQuery(sql,null);
+        return cursor;
+    }
+
+
 
     public static void close(){
 

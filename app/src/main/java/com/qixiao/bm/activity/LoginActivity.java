@@ -2,6 +2,7 @@ package com.qixiao.bm.activity;
 
 import android.Manifest;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -98,7 +99,9 @@ public class LoginActivity extends BaseActivity {
         msp.setString(USER_TEL, bean.getTel());
         msp.setString(USER_ICON, bean.getIcon());
 
-        toActivity(MainActivity.class);
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("type","login");
+        toActivity(intent);
         finish();
     }
 }

@@ -102,6 +102,12 @@ public class CalendarUtil {
        public lunar_t() {
        }
 
+       public lunar_t(int year, int month, int day) {
+           this.year = year;
+           this.month = month;
+           this.day = day;
+       }
+
        public int getYear() {
             return year;
         }

@@ -34,7 +34,7 @@ public abstract class BaseObserver<T> implements Observer<Response<BaseResponse<
     public BaseObserver(BaseView mView, BaseRxManager rxManager) {
         this.mView = mView;
         this.rxManager = rxManager;
-    }
+}
 
     @Override
     public final void onSubscribe(Disposable d) {
