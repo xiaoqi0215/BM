@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.qixiao.bm.activity.MessageActivity;
+import com.qixiao.bm.activity.SendSmsActivity;
 
 public class NotificationClickReceiver extends BroadcastReceiver {
 
@@ -17,7 +18,7 @@ public class NotificationClickReceiver extends BroadcastReceiver {
             notificationManager.cancel(notificationId);
         }
 
-        Intent openMessage = new Intent(context, MessageActivity.class)
+        Intent openMessage = new Intent(context, SendSmsActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(openMessage);
         //        EventBus.getDefault().post(new MessageEvent(context.getString(R.string.to_message), "notification"));

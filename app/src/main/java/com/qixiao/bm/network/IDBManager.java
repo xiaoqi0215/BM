@@ -16,4 +16,6 @@ public interface IDBManager {
         Observable<DBFriendBean> isHasFriend(String name);
         Observable<Boolean> deleteFriend(String name);
         Observable<Boolean> updataFriend(ContentValues values,String name);
+        Observable<DBFriendBean> querySmsFriend(int UserId,String friendName);
+
 }

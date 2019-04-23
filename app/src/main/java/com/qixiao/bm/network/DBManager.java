@@ -289,4 +289,21 @@ public class DBManager implements IDBManager {
             }
         }).subscribeOn(Schedulers.io());
     }
+
+    @Override
+    public Observable<DBFriendBean> querySmsFriend(final int userId, final String friendName) {
+        return Observable.create(new ObservableOnSubscribe<DBFriendBean>() {
+            @Override
+            public void subscribe(ObservableEmitter<DBFriendBean> emitter) throws Exception {
+           Cursor cursor =     SQLiteUtils.query("select tel,word from friend where userId=? and name=?",new String[]{userId+"",friendName});
+           while (cursor.moveToNext()){
+               DBFriendBean dbFriendBean =new DBFriendBean();
+               dbFriendBean.setTel(cursor.getString(cursor.getColumnIndex("tel")));
+               dbFriendBean.setWord(cursor.getString(cursor.getColumnIndex("word")));
+                emitter.onNext(dbFriendBean);
+                emitter.onComplete();
+           }
+            }
+        }).subscribeOn(Schedulers.io());
+    }
 }

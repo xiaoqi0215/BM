@@ -23,8 +23,6 @@ public class MyActionBar extends RelativeLayout {
     private String mTitle;
 
 
-
-
     public MyActionBar(Context context) {
         this(context,null);
     }
@@ -71,8 +69,6 @@ public class MyActionBar extends RelativeLayout {
     public void setRightIv(int id){
          mIvRight.setImageResource(id);
     }
-
-
 
     public void hihLeft() {
         mIvLfet.setVisibility(View.GONE);

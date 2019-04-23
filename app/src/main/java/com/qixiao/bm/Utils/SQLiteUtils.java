@@ -48,7 +48,11 @@ public class SQLiteUtils {
         Cursor cursor =db.rawQuery(sql,null);
         return cursor;
     }
+    public static Cursor  query(String sql,String[] strings){
 
+        Cursor cursor =db.rawQuery(sql,strings);
+        return cursor;
+    }
 
 
     public static void close(){

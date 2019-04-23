@@ -95,7 +95,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendPresenter> implemen
     String type;
     int mSex;
     int mSolar ;
-    String[] wayList= new String[]{"请选择提醒方式",BMContants.REMIND_ON_STEING,BMContants.REMIND_THREE_STEING,BMContants.REMIND_SEVEN_STEING};
+    String[] wayList= new String[]{"请选择提醒方式",BMContants.REMIND_ON_STEING,null,BMContants.REMIND_THREE_STEING,null,null,null,BMContants.REMIND_SEVEN_STEING};
     int[] solorList = new int[]{0,R.id.rb_add_friend_solar,R.id.rb_add_friend_lunar};
     int[] sexList = new int[]{0,R.id.rb_add_friend_male,R.id.rb_add_friend_female};
 
@@ -192,8 +192,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendPresenter> implemen
                         mWay= 7;
                     }
                     values.put(BMContants.DB_NAME,etAddfriendName.getText().toString());
-                    values.put(BMContants.DB_USERID,1);
-                   // values.put(BMContants.DB_TEL,etAddfriendTel.getText().toString()!=null);
+                    values.put(BMContants.DB_USERID,msp.getInt(BMContants.USER_ID));
+                    values.put(BMContants.DB_TEL,etAddfriendTel.getText().toString()!=null);
                     values.put(BMContants.DB_SEX,sex);
                     values.put(BMContants.DB_SOLAR,calendar);
                     values.put(BMContants.DB_YEAR,mYear);
@@ -201,6 +201,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendPresenter> implemen
                     values.put(BMContants.DB_DAY,mDay);
                     values.put(BMContants.DB_HOUR,mHour);
                     values.put(BMContants.DB_MIN,mMin);
+
+
                     Log.e("添加：TAG",mYear+"-"+mMonth+"-"+mDay+"-"+mHour+":"+mMin);
                     values.put(BMContants.DB_WAY,mWay);
                     if (!etAddfriendTel.getText().toString().isEmpty()){

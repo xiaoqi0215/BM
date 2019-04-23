@@ -261,9 +261,9 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                   // showToast(position + "");
-                  //  Intent intent = new Intent(MainActivity.this,AddFriendActivity.class);
-                 //   toActivity(intent,RESULT_CODE_TOADDFRIEND);
+                //    showToast(position + "");
+                    //Intent intent = new Intent(MainActivity.this,AddFriendActivity.class);
+                    toActivity(SendSmsActivity.class);
                 } else if (position == 1) {
                  //   showToast(position + "");
                 }
@@ -285,6 +285,5 @@ public class MainActivity extends BaseActivity<MainActivityContract.Presenter> i
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
     }
 }
